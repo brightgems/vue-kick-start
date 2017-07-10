@@ -1,0 +1,20 @@
+{
+  "globalDependencies": {
+    "ajv": "registry:dt/ajv#0.0.0+20161103102204",
+    "async": "registry:dt/async#2.0.1+20170322225536",
+    "axios": "registry:dt/axios#0.9.1+20161016142654",
+    "big.js": "registry:dt/big.js#0.0.0+20160816205622",
+    "core-js": "registry:dt/core-js#0.9.0+20170324193834",
+    "es6-promise": "registry:dt/es6-promise#0.0.0+20160726191732",
+    "firebase": "registry:dt/firebase#2.4.1+20160510002910",
+    "he": "registry:dt/he#0.5.0+20160505181202",
+    "http-errors": "registry:dt/http-errors#1.5.0+20170314130347",
+    "js-base64": "registry:dt/js-base64#2.1.9+20161025033459",
+    "less": "registry:dt/less#0.0.0+20161212190028",
+    "lru-cache": "registry:dt/lru-cache#4.0.1+20160812224217",
+    "node": "registry:dt/node#7.0.0+20170322231424",
+    "object-assign": "registry:dt/object-assign#4.0.1+20161119044246",
+    "vue": "registry:dt/vue#1.0.21+20160929090511",
+    "webpack-merge": "registry:dt/webpack-merge#0.0.0+20161121205806"
+  }
+}
