@@ -22,7 +22,7 @@ export function createStore () {
         if (type === 'first' && zen.list[0]) {
           return Promise.resolve(zen.list[0])
         } else {
-          commit('LOADING_TODO', true)
+          commit('LOADING_ZEN', true)
           return axios.get('https://api.github.com/repos/vmg/redcarpet/issues?state=closed').then(({data}) => {
             commit('LOADING_ZEN', false)
             commit('SET_ZEN', data)
