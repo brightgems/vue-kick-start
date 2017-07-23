@@ -1,0 +1,22 @@
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Python
+env/
+*.py[co]
+
+# IDEA
+.idea
+
+# Others
+*.swp
+*~
+*.log
+
+db.sqlite3
+migrations/
+media/

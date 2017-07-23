@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+{% load i18n %}
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title></title>
+
+  <link rel="stylesheet" href='{% static "bootstrap/css/bootstrap.min.css" %}'>
+  <link rel="stylesheet" href='{% static "bootstrap/css/bootstrap-theme.min.css" %}'>
+</head>
+
+<body>
+<header>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="">Data@BIT</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#" class="menu-link">{% trans "Home" %}<span class="sr-only">(current)</span></a>
+          </li>
+          <li class=""><a href="{% url 'user-list' %}" class="menu-link">{% trans "People" %}</a></li>
+          <li><a href="#" class="menu-link">{% trans "Project" %}</a></li>
+          <li><a href="#" class="menu-link">{% trans "About" %}</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          {% if user %}
+          <li><a href="#">{% trans "Sign In" %}</a></li>
+          <li><a href="#">{% trans "Sign Up" %}</a></li>
+          {% else %}
+          <li><a href="#">{% trans "Sign Out" %}</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="container" id="container">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">{% trans "Student List" %}</h1>
+      </div>
+    </div>
+
+<!--
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row text-right">
+          <div class="col-lg-12">
+            <ul class="pagination">
+              <li>
+                <a href="#">&laquo;</a>
+              </li>
+              <li class="active">
+                <a href="#">1</a>
+              </li>
+              <li>
+                <a href="#">2</a>
+              </li>
+              <li>
+                <a href="#">&raquo;</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+-->
+
+    <div id="user-list">
+      <div class="col-md-4" id="portfolio-item">
+        <a href="#">
+          <img class="img-responsive photo" style="max-width: 256px; max-height: 256px;">
+        </a>
+        <h3>
+          <a href="#" class="full-name">
+            <span class="last-name"></span>
+            <span class="first-name"></span>
+          </a>
+        </h3>
+        <h4>
+          <div class="role"></div>
+            <div class="nickname"></div>
+        </h4>
+        <p class="intro"></p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <script src="{% static 'jQuery/jquery-1.12.0.min.js' %}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+  <script>
+    $(function () {
+      $.getJSON('people/', function(data){
+        $.each(data.results, function(i, user){
+          var html = $('#portfolio-item').clone(true);
+          html.attr('id', 'portfolio-item-' + i);
+          html.find('a').attr('href', "/people/" + user.id);
+          html.find('.photo').attr('src', user.photo);
+          html.find('.last-name').text(user.last_name);
+          html.find('.first-name').text(user.first_name);
+          html.find('.role').text(user.role);
+          html.find('.nickname').text(user.nickname);
+          html.find('.intro').text(user.intro);
+          html.appendTo('#user-list');
+        });
+        $('#portfolio-item').remove();
+      });
+    });
+  </script>
+</footer>
+</body>
+</html>
