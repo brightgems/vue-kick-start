@@ -2,8 +2,9 @@
 
 A vue starer kit for everyone. Very easy to use and learn. Anybody can have a easy starter from it.
 
-## Features
+## Technology Stack
 
+### 1) Frontend
 - Server Side Rendering
   - Vue + vue-router + vuex working together
   - Server-side data pre-fetching
@@ -13,6 +14,15 @@ A vue starer kit for everyone. Very easy to use and learn. Anybody can have a ea
   - Hot-reload in development
   - CSS extraction for production
   - Code splitting
+- admin site
+  - element ui
+  - echart  
+
+### 2) Backend
+- Django
+  - restframework
+  - oauth 2.0
+  - object level permission
 
 ## Architecture Overview
 
