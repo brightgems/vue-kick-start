@@ -78,21 +78,23 @@
 
                 formData.append('username', this.data.body.username);
                 formData.append('password', this.data.body.password);
+                this.$auth.register({ name, email, password }).then(function () {
+                    // Execute application logic after successful registration 
+                })
+                // this.$auth.register({
+                //     body: formData, // Vue-resoruce
+                //     data: formData, // Axios
+                //     autoLogin: this.data.autoLogin,
+                //     rememberMe: this.data.rememberMe,
+                //     success: function () {
+                //         console.log('success ' + this.context);
+                //     },
+                //     error: function (res) {
+                //         console.log('error ' + this.context);
 
-                this.$auth.register({
-                    body: formData, // Vue-resoruce
-                    data: formData, // Axios
-                    autoLogin: this.data.autoLogin,
-                    rememberMe: this.data.rememberMe,
-                    success: function () {
-                        console.log('success ' + this.context);
-                    },
-                    error: function (res) {
-                        console.log('error ' + this.context);
-
-                        this.error = res.data;
-                    }
-                });
+                //         this.error = res.data;
+                //     }
+                // });
             }
         }
     }

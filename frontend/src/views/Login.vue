@@ -50,32 +50,32 @@
             };
         },
 
-        mounted() {
-            console.log(this.$auth.redirect());
-
-            // Can set query parameter here for auth redirect or just do it silently in login redirect.
-        },
-
         methods: {
-            login() {
-                var redirect = this.$auth.redirect();
-
-                this.$auth.login({
-                    body: this.data.body, // Vue-resource
-                    data: this.data.body, // Axios
-                    rememberMe: this.data.rememberMe,
-                    redirect: {name: redirect ? redirect.from.name : 'account'},
-                    fetchUser: this.data.fetchUser,
-                    success() {
-                        console.log('success ' + this.context);
-                    },
-                    error(res) {
-                        console.log('error ' + this.context);
-
-                        this.error = res.data;
-                    }
-                });
+            login: function () {
+                this.$auth.login({ email, password }).then(function () {
+                    // Execute application logic after successful login 
+                    console.log('success ' + this.context);
+                })
             }
+            // login() {
+            //     var redirect = this.$auth.redirect();
+
+            //     this.$auth.login({
+            //         body: this.data.body, // Vue-resource
+            //         data: this.data.body, // Axios
+            //         rememberMe: this.data.rememberMe,
+            //         redirect: {name: redirect ? redirect.from.name : 'account'},
+            //         fetchUser: this.data.fetchUser,
+            //         success() {
+            //             console.log('success ' + this.context);
+            //         },
+            //         error(res) {
+            //             console.log('error ' + this.context);
+
+            //             this.error = res.data;
+            //         }
+            //     });
+            // }
         }
     }
 </script>

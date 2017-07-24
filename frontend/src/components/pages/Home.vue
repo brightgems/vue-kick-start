@@ -32,7 +32,7 @@
 </template>
 
 <script>
-    import cookie from '@websanova/vue-auth/src/lib/cookie.js'
+    import cookie from '.lib/cookie.js'
 
     export default {
         data() {
